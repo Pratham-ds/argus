@@ -10,15 +10,16 @@ import {
   Cpu,
   Video,
 } from "lucide-react";
+import { CRIME_TYPES } from "@/lib/crime-types";
 
 const features = [
   { icon: Plane, title: "Autonomous Drone Patrolling", desc: "Self-navigating drones cover patrol routes using ArduPilot autopilot systems." },
-  { icon: ScanEye, title: "Real-Time AI Crime Detection", desc: "ML models process live video feeds to identify criminal behavior instantly." },
-  { icon: Swords, title: "Weapon Detection", desc: "Specialized detection for guns and knives with high-confidence alerts." },
+  { icon: ScanEye, title: "14-Class AI Crime Detection", desc: "ML models detect 14 crime types in real-time including fighting, robbery, weapons, arson, stalking, and more." },
+  { icon: Swords, title: "Weapon Detection", desc: "Specialized detection for firearms and bladed weapons with high-confidence classification." },
   { icon: AlertTriangle, title: "SOS Alert System", desc: "Automated emergency alerts with GPS coordinates pushed to all stations." },
   { icon: MapPin, title: "Live GPS Tracking", desc: "Real-time drone positioning with patrol route visualization on maps." },
   { icon: LayoutDashboard, title: "Police Command Dashboard", desc: "Centralized control panel for monitoring all drone operations." },
-  { icon: Cpu, title: "ArduPilot Integration", desc: "MAVLink protocol integration for full drone telemetry and control." },
+  { icon: Cpu, title: "ArduPilot / MAVLink", desc: "Connect Mission Planner or MAVLink ground stations directly from the dashboard." },
   { icon: Video, title: "Real-Time Video Monitoring", desc: "Live camera feeds with AI overlay showing detection bounding boxes." },
 ];
 
@@ -64,6 +65,46 @@ const FeaturesSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Crime Detection Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-16"
+        >
+          <div className="text-center mb-8">
+            <span className="font-mono text-xs text-secondary tracking-widest uppercase">
+              // AI Detection Models
+            </span>
+            <h3 className="font-display text-2xl md:text-3xl font-bold mt-3 text-foreground">
+              <span className="text-primary text-glow-cyan">14</span> Crime Types Detected
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground max-w-xl mx-auto">
+              Our ML pipeline processes live video frames and classifies the following criminal activities in real time.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+            {CRIME_TYPES.map((crime, i) => (
+              <motion.div
+                key={crime.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.3, delay: 0.6 + i * 0.05 }}
+                className="glass-panel p-3 text-center group hover:border-primary/40 hover:cyan-glow transition-all duration-300"
+              >
+                <crime.icon className={`w-5 h-5 mx-auto mb-2 ${
+                  crime.severity === "critical" ? "text-destructive" :
+                  crime.severity === "high" ? "text-orange-400" : "text-yellow-400"
+                } group-hover:scale-110 transition-transform`} />
+                <div className="font-display text-[9px] text-foreground font-semibold tracking-wide leading-tight">
+                  {crime.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

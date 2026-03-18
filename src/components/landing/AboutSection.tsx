@@ -11,8 +11,8 @@ const steps = [
   },
   {
     icon: Brain,
-    title: "AI Detection",
-    desc: "Trained ML models analyze video frames in real time, detecting fighting, robbery, weapons, and violent behavior.",
+    title: "14-Class AI Detection",
+    desc: "Trained ML models analyze video in real time, detecting 14 crime types — fighting, robbery, weapons (guns & knives), arson, vehicle theft, mob violence, stalking, assault, kidnapping, and more.",
   },
   {
     icon: Bell,

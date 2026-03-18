@@ -209,6 +209,18 @@ const Dashboard = () => {
             <AnalyticsPanel alerts={alerts} drones={drones} />
           </motion.div>
         )}
+
+        {activeTab === "detection" && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <CrimeDetectionPanel />
+          </motion.div>
+        )}
+
+        {activeTab === "ardupilot" && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <ArduPilotPanel />
+          </motion.div>
+        )}
       </div>
     </div>
   );

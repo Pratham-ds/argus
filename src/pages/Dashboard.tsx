@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Shield,
@@ -40,10 +40,10 @@ const Dashboard = () => {
   const [alerts, setAlerts] = useState<AlertEvent[]>(mockAlerts);
 
   const [time, setTime] = useState(new Date());
-  useState(() => {
+  useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(t);
-  });
+  }, []);
 
   const handleAcknowledge = (id: number) => {
     setAlerts((prev) =>

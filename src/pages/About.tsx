@@ -22,7 +22,7 @@ const sections = [
   {
     icon: Brain,
     title: "AI Detection Pipeline",
-    content: "A trained machine learning model processes live video frames from the drone camera, identifying suspicious activities including fighting, robbery, weapon usage (guns and knives), and other violent behavior with high-confidence classification.",
+    content: "A trained machine learning model processes live video frames from the drone camera, identifying 14 categories of criminal activity including fighting, robbery, weapon usage (guns and knives), arson, vehicle theft, mob violence, stalking, assault, kidnapping, trespassing, vandalism, suspicious packages, explosion detection, and violent behavior — all with high-confidence classification.",
   },
   {
     icon: Shield,

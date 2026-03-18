@@ -10,6 +10,8 @@ import {
   AlertTriangle,
   BarChart3,
   Home,
+  ScanEye,
+  Cpu,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -23,8 +25,10 @@ import DroneFleetPanel from "@/components/dashboard/DroneFleetPanel";
 import LiveFeedPanel from "@/components/dashboard/LiveFeedPanel";
 import AlertHistoryPanel from "@/components/dashboard/AlertHistoryPanel";
 import AnalyticsPanel from "@/components/dashboard/AnalyticsPanel";
+import CrimeDetectionPanel from "@/components/dashboard/CrimeDetectionPanel";
+import ArduPilotPanel from "@/components/dashboard/ArduPilotPanel";
 
-type Tab = "overview" | "fleet" | "feeds" | "alerts" | "analytics";
+type Tab = "overview" | "fleet" | "feeds" | "alerts" | "analytics" | "detection" | "ardupilot";
 
 const tabs: { id: Tab; label: string; icon: any }[] = [
   { id: "overview", label: "Overview", icon: LayoutDashboard },
@@ -32,6 +36,8 @@ const tabs: { id: Tab; label: string; icon: any }[] = [
   { id: "feeds", label: "Live Feeds", icon: Video },
   { id: "alerts", label: "Alert History", icon: AlertTriangle },
   { id: "analytics", label: "Analytics", icon: BarChart3 },
+  { id: "detection", label: "Detection", icon: ScanEye },
+  { id: "ardupilot", label: "ArduPilot", icon: Cpu },
 ];
 
 const Dashboard = () => {
